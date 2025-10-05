@@ -13,5 +13,6 @@ export interface TodoItem{
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('ToDoListAngular');
+  todoList: TodoItem[]= [];
+  newTask: string="";
 }
