@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
-
+import { CommonModule } from '@angular/common';
 export interface TodoItem{
   id:number;
   task:string;
@@ -9,7 +9,7 @@ export interface TodoItem{
 }
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormsModule],
+  imports: [RouterOutlet, FormsModule, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -28,7 +28,12 @@ export class App {
       this.newTask=''
     }
   }
-  toogleCompleted(index:number):void{
+  toggleCompleted(index:number):void{
     this.todoList[index].completed = !this.todoList[index].completed
+  }
+
+  deleteTask(id:number):void{
+    this.todoList= this.todoList.filter(item => item.id !== id)
+    console.log(this.todoList)
   }
 }
