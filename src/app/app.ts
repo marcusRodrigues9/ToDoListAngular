@@ -28,4 +28,7 @@ export class App {
       this.newTask=''
     }
   }
+  toogleCompleted(index:number):void{
+    this.todoList[index].completed = !this.todoList[index].completed
+  }
 }
