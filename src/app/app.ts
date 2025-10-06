@@ -18,6 +18,15 @@ export class App {
   newTask: string="";
 
   addTask():void{
-    
+    if(this.newTask.trim()!== ''){
+      const newTodoItem: TodoItem = {
+        id: Date.now(),
+        task: this.newTask,
+        completed: false
+      }
+      this.todoList.push(newTodoItem)
+      console.log(this.todoList
+      )
+    }
   }
 }
