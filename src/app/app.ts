@@ -16,4 +16,8 @@ export interface TodoItem{
 export class App {
   todoList: TodoItem[]= [];
   newTask: string="";
+
+  addTask():void{
+    
+  }
 }
