@@ -6,6 +6,7 @@ export interface TodoItem{
   id:number;
   task:string;
   completed: boolean;
+
 }
 @Component({
   selector: 'app-root',
@@ -17,6 +18,12 @@ export class App {
   todoList: TodoItem[]= [];
   newTask: string="";
 
+  ngOnInit(){
+    const saved = localStorage.getItem('todoList');
+    if(saved){
+      this.todoList= JSON.parse(saved)
+    }
+  }
   addTask():void{
     if(this.newTask.trim()!== ''){
       const newTodoItem: TodoItem = {
@@ -27,13 +34,17 @@ export class App {
       this.todoList.push(newTodoItem)
       this.newTask=''
     }
+    localStorage.setItem('todoList', JSON.stringify(this.todoList))
   }
   toggleCompleted(index:number):void{
     this.todoList[index].completed = !this.todoList[index].completed
+    localStorage.setItem('todoList', JSON.stringify(this.todoList))
   }
 
   deleteTask(id:number):void{
     this.todoList= this.todoList.filter(item => item.id !== id)
     console.log(this.todoList)
+    localStorage.setItem('todoList', JSON.stringify(this.todoList))
+
   }
 }
