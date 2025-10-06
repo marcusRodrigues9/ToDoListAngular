@@ -5,7 +5,14 @@
     </div>
     <div class="add-task">
         <input [(ngModel)]="newTask" placeholder="nova tarefa"/>
-        <button><i class="bi bi-plus-circle"></i></button>
+        <button (click)="addTask()"><i class="bi bi-plus-circle"></i></button>
     </div>
+    <ul class="task-list">
+        @for(item of todoList; track item){
+            <li>
+                {{item}}
+            </li>
+        }
+    </ul>
 </main>
 <router-outlet />

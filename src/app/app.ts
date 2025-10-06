@@ -25,8 +25,7 @@ export class App {
         completed: false
       }
       this.todoList.push(newTodoItem)
-      console.log(this.todoList
-      )
+      this.newTask=''
     }
   }
 }
