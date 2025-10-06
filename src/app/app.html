@@ -10,6 +10,7 @@
     <ul class="task-list">
         @for(item of todoList; track item){
             <li>
+                <input type="checkbox">
                 <span>{{item.task}}</span>
                 <button><i class="bi bi-trash"></i></button>
             </li>
